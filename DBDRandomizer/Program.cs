@@ -16,7 +16,8 @@ namespace DBDRandomizer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RoleSelect());
+            //Application.Run(new RoleSelect());
+            Application.Run(new Randomizer());
         }
     }
 }

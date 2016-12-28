@@ -25,8 +25,6 @@ namespace DBDRandomizer
                 ListViewItem listItem = new ListViewItem(perkName);
 
                 Image perkImage = Image.FromFile(perk);
-                list.LargeImageList.Images.Add(perkName, perkImage);
-                listItem.ImageIndex = list.LargeImageList.Images.Count - 1;
                 list.SmallImageList.Images.Add(perkName, perkImage);
                 listItem.ImageIndex = list.SmallImageList.Images.Count - 1;
 
