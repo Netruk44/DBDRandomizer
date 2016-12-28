@@ -45,6 +45,7 @@
             this.perkLabel4 = new System.Windows.Forms.Label();
             this.perkImage4 = new System.Windows.Forms.PictureBox();
             this.uniqueCheckbox = new System.Windows.Forms.CheckBox();
+            this.dupeCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.perkImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.perkImage2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.perkImage3)).BeginInit();
@@ -216,11 +217,22 @@
             this.uniqueCheckbox.Text = "Only New Perks Every Roll";
             this.uniqueCheckbox.UseVisualStyleBackColor = true;
             // 
+            // dupeCheckbox
+            // 
+            this.dupeCheckbox.AutoSize = true;
+            this.dupeCheckbox.Location = new System.Drawing.Point(1078, 520);
+            this.dupeCheckbox.Name = "dupeCheckbox";
+            this.dupeCheckbox.Size = new System.Drawing.Size(164, 24);
+            this.dupeCheckbox.TabIndex = 32;
+            this.dupeCheckbox.Text = "Enable Duplicates";
+            this.dupeCheckbox.UseVisualStyleBackColor = true;
+            // 
             // Survivor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1293, 557);
+            this.Controls.Add(this.dupeCheckbox);
             this.Controls.Add(this.uniqueCheckbox);
             this.Controls.Add(this.perkLabel4);
             this.Controls.Add(this.perkImage4);
@@ -271,5 +283,6 @@
         private System.Windows.Forms.Label perkLabel4;
         private System.Windows.Forms.PictureBox perkImage4;
         private System.Windows.Forms.CheckBox uniqueCheckbox;
+        private System.Windows.Forms.CheckBox dupeCheckbox;
     }
 }
