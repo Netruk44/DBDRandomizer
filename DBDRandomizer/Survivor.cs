@@ -48,7 +48,7 @@ namespace DBDRandomizer
 
         private void randomizeButton_Click(object sender, EventArgs e)
         {
-            var selectedPerks = Common.RandomizePerks(4, perkList);
+            var selectedPerks = Common.RandomizePerks(4, perkList, uniqueCheckbox.Checked);
             PictureBox[] pictures = { perkImage1, perkImage2, perkImage3, perkImage4 };
             Label[] labels = { perkLabel1, perkLabel2, perkLabel3, perkLabel4 };
 

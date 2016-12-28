@@ -40,7 +40,9 @@ namespace DBDRandomizer
             public string Name { get; set; }
         }
 
-        public static List<Perk> RandomizePerks(int count, ListView list)
+        private static List<string> previousPerks = new List<string>();
+
+        public static List<Perk> RandomizePerks(int count, ListView list, bool uniquePerks)
         {
             Random r = new Random();
             int picksLeft = count;
@@ -48,15 +50,38 @@ namespace DBDRandomizer
             List<Perk> allPerks = new List<Perk>();
             List<Perk> selectedPerks = new List<Perk>();
 
+            // If there weren't previous perks, don't bother checking
+            if (previousPerks == null)
+            {
+                uniquePerks = false;
+            }
+
+            // If there aren't enough perks selected to have a full set, ignore this
+            if (previousPerks.Count + count > list.CheckedItems.Count)
+            {
+                uniquePerks = false;
+            }
+
             foreach (ListViewItem perk in list.CheckedItems)
             {
-                allPerks.Add(new Perk { Img = list.SmallImageList.Images[perk.ImageIndex], Name = perk.Text });
+                Image img = list.SmallImageList.Images[perk.ImageIndex];
+                string name = perk.Text;
+
+                // Filter out perks that were selected the previous roll, if that's asked for
+                if (uniquePerks == false || !previousPerks.Contains(name))
+                {
+                    allPerks.Add(new Perk { Img = img, Name = name });
+                }
             }
+
+            previousPerks.Clear();
 
             while (allPerks.Count > 0 && picksLeft > 0)
             {
                 int nextIndex = r.Next(allPerks.Count);
-                selectedPerks.Add(allPerks[nextIndex]);
+                Perk nextPerk = allPerks[nextIndex];
+                selectedPerks.Add(nextPerk);
+                previousPerks.Add(nextPerk.Name);
                 allPerks.RemoveAt(nextIndex);
 
                 picksLeft -= 1;
